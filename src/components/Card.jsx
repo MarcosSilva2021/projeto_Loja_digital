@@ -1,11 +1,17 @@
-const Card = () => {
+const Card = ({title, category, paragraph, image,tipo}) => {
     return (  
-        <>
-            <h2>titulo</h2>
-            <h6>Categoria</h6>
-            <p> um paragrafo de escrita</p>
-
-        </>
+        <div style={{border: "1px solid red"}}>
+            <img src={image} alt={title} />
+            <h2>{title}</h2>
+            {
+                tipo == "A" && (
+                    <>            
+                        <h6>{category}</h6>
+                        <p>{paragraph}</p>
+                    </>
+                )
+            }
+        </div>
     );
 }
  
