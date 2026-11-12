@@ -9,14 +9,6 @@ import Input from "./components/Input";
 
 const App = () => {
 
-  useEffect(() => {
-    console.log("useEffect foi chamado ...");
-  });
-
-  useEffect(() => {
-    console.log("useEffect foi chamado 1 vez");
-  }, []);
-
   return (
     <>
       <Header />
