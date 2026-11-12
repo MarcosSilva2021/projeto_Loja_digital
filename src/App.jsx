@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Banner from "./components/Banner";
 import Button from "./components/Button";
 import Card from "./components/Card";
@@ -7,6 +8,15 @@ import Header from "./components/Header";
 import Input from "./components/Input";
 
 const App = () => {
+
+  useEffect(() => {
+    console.log("useEffect foi chamado ...");
+  });
+
+  useEffect(() => {
+    console.log("useEffect foi chamado 1 vez");
+  }, []);
+
   return (
     <>
       <Header />
