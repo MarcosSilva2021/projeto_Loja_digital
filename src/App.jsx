@@ -6,14 +6,14 @@ import CardDinamico from "./components/CardDinamico";
 import FormaDeBolo from "./components/FormaDeBolo";
 import Header from "./components/Header";
 import Input from "./components/Input";
+import Paths from "./Routes/Paths";
 
 const App = () => {
 
   return (
     <>
       <Header />
-      <Button/>
-      <Input/>
+      <Paths />
       <Banner />
     </>
   );
