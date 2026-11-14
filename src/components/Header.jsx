@@ -1,17 +1,17 @@
-import { NavLink, Link } from "react-router-dom";
+import { useState } from "react";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { InputText } from 'primereact/inputtext';
-import { Button } from 'primereact/button';
 import Logo from "./Logo";
+import miniCartIcon from "../assets/mini-cart.svg";
 
 const HeaderContainer = styled.header`
-    background-color: #FFFFFF;
+    background-color: var(--white);
     padding: 25px 60px 15px 60px;
     display: flex;
     flex-direction: column;
     gap: 25px;
-    font-family: 'Inter', Arial, Helvetica, sans-serif;
-    border-bottom: 1px solid #F5F5F5;
+    border-bottom: 1px solid var(--light-gray-3);
 
     .top-bar {
         display: flex;
@@ -20,7 +20,7 @@ const HeaderContainer = styled.header`
         gap: 30px;
     }
 
-    /* Barra de Pesquisa */
+    /* 3.1.2 - Campo de Busca */
     .search-box {
         position: relative;
         flex: 1;
@@ -28,19 +28,20 @@ const HeaderContainer = styled.header`
 
         input {
             width: 100%;
-            background-color: #F8F8F8;
+            background-color: var(--light-gray-3);
             border: none;
             border-radius: 8px;
             padding: 14px 45px 14px 20px;
             font-size: 15px;
-            color: #474747;
+            color: var(--dark-gray-2);
 
             &::placeholder {
-                color: #999999;
+                color: var(--light-gray);
             }
 
             &:focus {
-                box-shadow: 0 0 0 2px #C9207140;
+                box-shadow: 0 0 0 2px var(--primary);
+                outline: none;
             }
         }
 
@@ -49,13 +50,17 @@ const HeaderContainer = styled.header`
             right: 16px;
             top: 50%;
             transform: translateY(-50%);
-            color: #999999;
+            color: var(--light-gray);
             font-size: 18px;
             cursor: pointer;
+
+            &:hover {
+                color: var(--primary);
+            }
         }
     }
 
-    /* Ações da Direita (Cadastre-se, Entrar, Carrinho) */
+    /* 3.1.3 - Área de Redirecionamento */
     .user-actions {
         display: flex;
         align-items: center;
@@ -63,53 +68,45 @@ const HeaderContainer = styled.header`
         white-space: nowrap;
 
         .register-link {
-            color: #474747;
+            font-size: 16px;
+            color: var(--dark-gray-2);
             text-decoration: underline;
-            font-size: 15px;
+            text-decoration-color: var(--dark-gray-2);
+
             &:hover {
-                color: #C92071;
+                color: var(--primary);
+                text-decoration-color: var(--primary);
             }
         }
 
         .login-btn {
-            background-color: #C92071;
-            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary);
+            width: 114px;
+            height: 40px;
             border-radius: 4px;
-            padding: 10px 28px;
-            font-weight: 600;
+            color: var(--white);
+            font-weight: 700;
             font-size: 14px;
-            color: #FFFFFF;
-            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s;
 
             &:hover {
-                background-color: #991956;
+                background-color: var(--tertiary);
             }
         }
 
+        /* 3.1.4 - Carrinho de Compras */
         .cart-wrapper {
-            position: relative;
-            cursor: pointer;
+            display: flex;
+            align-items: center;
             margin-left: 10px;
-            color: #C92071;
 
-            i {
-                font-size: 22px;
-            }
-
-            .cart-badge {
-                position: absolute;
-                top: -8px;
-                right: -10px;
-                background-color: #EE4266;
-                color: #FFFFFF;
-                font-size: 11px;
-                font-weight: bold;
-                width: 18px;
-                height: 18px;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+            img {
+                width: 24px;
+                height: 24px;
             }
         }
     }
@@ -123,45 +120,71 @@ const HeaderContainer = styled.header`
         margin: 0;
 
         li a {
-            color: #474747;
+            color: var(--dark-gray-2);
             text-decoration: none;
             font-size: 16px;
             padding-bottom: 6px;
             transition: all 0.2s;
 
             &:hover {
-                color: #C92071;
+                color: var(--primary);
             }
 
             &.active {
-                color: #C92071;
+                color: var(--primary);
                 font-weight: 700;
-                border-bottom: 1px solid #C92071;
+                border-bottom: 2px solid var(--primary);
             }
         }
     }
 `;
 
 const Header = () => {
+    const [searchTerm, setSearchTerm] = useState("");
+    const navigate = useNavigate();
+
+    const handleSearch = () => {
+        if (searchTerm.trim() !== "") {
+            navigate(`/products?filter=${encodeURIComponent(searchTerm.trim())}`);
+        }
+    };
+
+    const handleKeyDown = (e) => {
+        if (e.key === "Enter") {
+            handleSearch();
+        }
+    };
+
     return (
         <HeaderContainer>
             {/* Linha Superior */}
             <div className="top-bar">
-                <Logo /> {/* <-- Uso do componente Logo */}
+                <Logo />
 
+                {/* 3.1.2 - Campo de busca */}
                 <div className="search-box">
-                    <InputText placeholder="Pesquisar produto..." />
-                    <i className="pi pi-search" />
+                    <InputText 
+                        placeholder="Pesquisar produto..." 
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        onKeyDown={handleKeyDown}
+                    />
+                    <i className="pi pi-search" onClick={handleSearch} />
                 </div>
 
+                {/* 3.1.3 - Área de Redirecionamento */}
                 <div className="user-actions">
                     <Link to="/cadastro" className="register-link">
                         Cadastre-se
                     </Link>
-                    <Button label="Entrar" className="login-btn" />
+                    
+                    <Link to="/login" className="login-btn">
+                        Entrar
+                    </Link>
+
+                    {/* 3.1.4 - Carrinho de compras */}
                     <div className="cart-wrapper">
-                        <i className="pi pi-shopping-cart" />
-                        <span className="cart-badge">2</span>
+                        <img src={miniCartIcon} alt="Carrinho de compras" />
                     </div>
                 </div>
             </div>
