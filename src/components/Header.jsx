@@ -1,6 +1,12 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
+import "primereact/resources/themes/lara-light-blue/theme.css";
+import "primeicons/primeicons.css";
+import "primeflex/primeflex.css";
+
+import { Button} from 'primereact/button';
+
 const HeaderContainer = styled.header`
     background-color: blueviolet;
     padding: 0 60px;
@@ -37,6 +43,7 @@ const Header = () => {
                         <li><NavLink to={"/produtos"}>Produtos</NavLink></li>
                     </ul>
                 </nav>
+                <Button label="Entrar" />
         </HeaderContainer>    
       );
 }
