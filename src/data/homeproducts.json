@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "name": "K-Swiss V8 - Masculino",
+    "price": 200,
+    "priceDiscount": 100,
+    "image": "/produc-image-1.jpeg",
+    "carousel": true
+  },
+  {
+    "id": 2,
+    "name": "K-Swiss V8 - Masculino",
+    "price": 200,
+    "priceDiscount": null,
+    "image": "/produc-image-2.jpeg",
+    "carousel": false
+  },
+  {
+    "id": 3,
+    "name": "K-Swiss V8 - Masculino",
+    "price": 200,
+    "priceDiscount": 100,
+    "image": "/produc-image-1.jpeg",
+    "carousel": true
+  },
+  {
+    "id": 4,
+    "name": "K-Swiss V8 - Masculino",
+    "price": 200,
+    "priceDiscount": null,
+    "image": "/produc-image-2.jpeg",
+    "carousel": false
+  },
+  {
+    "id": 5,
+    "name": "K-Swiss V8 - Masculino",
+    "price": 200,
+    "priceDiscount": 100,
+    "image": "/produc-image-1.jpeg",
+    "carousel": true
+  },
+  {
+    "id": 6,
+    "name": "K-Swiss V8 - Masculino",
+    "price": 200,
+    "priceDiscount": null,
+    "image": "/produc-image-2.jpeg",
+    "carousel": false
+  },
+  {
+    "id": 7,
+    "name": "K-Swiss V8 - Masculino",
+    "price": 200,
+    "priceDiscount": 100,
+    "image": "/produc-image-1.jpeg",
+    "carousel": true
+  },
+  {
+    "id": 8,
+    "name": "K-Swiss V8 - Masculino",
+    "price": 200,
+    "priceDiscount": null,
+    "image": "/produc-image-2.jpeg",
+    "carousel": false
+  },
+  {
+    "id": 9,
+    "name": "K-Swiss V8 - Masculino",
+    "price": 200,
+    "priceDiscount": 100,
+    "image": "/produc-image-1.jpeg",
+    "carousel": false
+  },
+  {
+    "id": 10,
+    "name": "K-Swiss V8 - Masculino",
+    "price": 200,
+    "priceDiscount": null,
+    "image": "/produc-image-2.jpeg",
+    "carousel": false
+  },
+  {
+    "id": 11,
+    "name": "K-Swiss V8 - Masculino",
+    "price": 200,
+    "priceDiscount": 100,
+    "image": "/produc-image-1.jpeg",
+    "carousel": false
+  },
+  {
+    "id": 12,
+    "name": "K-Swiss V8 - Masculino",
+    "price": 200,
+    "priceDiscount": null,
+    "image": "/produc-image-2.jpeg",
+    "carousel": false
+  }
+]
