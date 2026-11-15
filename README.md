@@ -1,16 +1,49 @@
-# React + Vite
+# 1 - Projeto loja digital
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Motivação
 
-Currently, two official plugins are available:
+-Este é um projeto construido para o curso de Desenvolvimento Web Full Stack da Geração Tech 4.0, uma parceria entre o IEL Ceará e o Governo do Estado do Ceará.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Objetivo
 
-## React Compiler
+-Este é um frontend de uma loja online com todas as funcionalidades de uma e-commerce:
+-- Gestão de produtos;
+-- Categorias;
+-- Laçamentos de ofertas e descontos;
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tecnologias Utilizadas
 
-## Expanding the ESLint configuration
+O projeto utiliza as seguintes tecnologias e dependências:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+--    React: Biblioteca para construção da interface de usuário.
+--    Vite: Ferramenta de build e desenvolvimento que oferece alta performance.
+--    Axios: Utilizado para fazer requisições HTTP à API do backend.
+--    React Router: Biblioteca para gerenciamento de rotas e navegação entre páginas.
+--    PrimeReact: Conjunto de componentes de UI para construção de interfaces ricas e responsivas.
+
+
+# 2 - Sugestão para estrutura de pastas
+
+- Com o objetivo de organizar o projeto estruture o projeto de modo que dentro da pasta "src" existam as pastas dos componentes chamada `components` e a pasta de paginas chamada `pages`. Na pasta `components` devem ser criados os componentes funcionais do projeto e na `pasta` page deve conter cada aba da pagina da loja `drip-store`, contendo somente a chamada dos componentes criados. Essa organização facilitará a criação de rotas dentro do arquivo `App.js`.
+
+```
+├── src/
+│   ├── compoments/
+│   │   ├── Header
+│   │   ├── Footer
+│   │   ├── Logo
+│   │   ├── ProductListing
+│   │   ├── ProductCard
+│   │   ├── ProductOptions
+│   │   ├── BuyBox
+│   │   ├── Section
+│   │   ├── FilterGroup
+│   │   └── ProductDetails
+│   └── pages/
+│       ├── HomePage
+│       ├── ProductViewPage
+│       └── ProductListingPage
+├── App.js
+└── index.js
+
+```
