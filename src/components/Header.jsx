@@ -145,7 +145,8 @@ const Header = () => {
 
     const handleSearch = () => {
         if (searchTerm.trim() !== "") {
-            navigate(`/products?filter=${encodeURIComponent(searchTerm.trim())}`);
+            setSearchTerm("");
+            navigate("/em-construcao");
         }
     };
 
