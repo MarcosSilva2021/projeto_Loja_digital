@@ -11,14 +11,14 @@ const ProductImage = styled.img`
   height: 321px;
   object-fit: cover;
   border-radius: 4px;
-  background-color: #ffffff;
+  background-color: var(--white);
 `;
 
 const ProductName = styled.h3`
   margin: 12px 0 6px 0;
   font-size: 18px;
   font-weight: 500;
-  color: #474747;
+  color: var(--dark-gray-2);
 `;
 
 const PriceContainer = styled.div`
@@ -29,14 +29,14 @@ const PriceContainer = styled.div`
 
 const OriginalPrice = styled.span`
   font-size: 24px;
-  color: ${(props) => (props.$hasDiscount ? "#8F8F8F" : "#1F1F1F")};
+  color: ${(props) => (props.$hasDiscount ? "var(--light-gray)" : "var(--dark-gray)")};
   text-decoration: ${(props) => (props.$hasDiscount ? "line-through" : "none")};
   font-weight: ${(props) => (props.$hasDiscount ? "400" : "700")};
 `;
 
 const DiscountPrice = styled.span`
   font-size: 24px;
-  color: #1F1F1F;
+  color: var(--dark-gray);
   font-weight: 700;
 `;
 
