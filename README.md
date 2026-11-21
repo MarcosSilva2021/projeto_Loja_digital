@@ -1,4 +1,8 @@
-# 1 - Projeto loja digital
+# Digital Store - Frontend E-commerce
+
+Projeto frontend de uma plataforma de e-commerce desenvolvido em **React**, focado na construção de interfaces modernas, reutilização de componentes e experiência de navegação fluida.
+
+---
 
 ## Motivação
 
@@ -13,18 +17,16 @@
 
 ## Tecnologias Utilizadas
 
-O projeto utiliza as seguintes tecnologias e dependências:
+* **React (Vite):** Biblioteca principal para construção da interface baseada em componentes e gerenciamento de estado.
+* **React Router DOM:** Gerenciamento de rotas SPA (Single Page Application), navegação dinâmica e tratamento de páginas inexistentes.
+* **Styled-Components:** Estilização modularizada via CSS-in-JS com suporte a variáveis globais de tema (`GlobalStyles`).
+* **PrimeReact & PrimeFlex:** Biblioteca de componentes ricos de interface e sistema de grid responsivo.
+* **PrimeIcons:** Conjunto de ícones utilizados na interface de busca, navegação e feedback visual.
 
---    React: Biblioteca para construção da interface de usuário.
---    Vite: Ferramenta de build e desenvolvimento que oferece alta performance.
---    Axios: Utilizado para fazer requisições HTTP à API do backend.
---    React Router: Biblioteca para gerenciamento de rotas e navegação entre páginas.
---    PrimeReact: Conjunto de componentes de UI para construção de interfaces ricas e responsivas.
+---
 
+# 2 - Estrutura de pastas
 
-# 2 - Sugestão para estrutura de pastas
-
-- Com o objetivo de organizar o projeto estruture o projeto de modo que dentro da pasta "src" existam as pastas dos componentes chamada `components` e a pasta de paginas chamada `pages`. Na pasta `components` devem ser criados os componentes funcionais do projeto e na `pasta` page deve conter cada aba da pagina da loja `drip-store`, contendo somente a chamada dos componentes criados. Essa organização facilitará a criação de rotas dentro do arquivo `App.js`.
 
 ```
 ├── src/
@@ -34,10 +36,6 @@ O projeto utiliza as seguintes tecnologias e dependências:
 │   │   ├── Logo
 │   │   ├── ProductListing
 │   │   ├── ProductCard
-│   │   ├── ProductOptions
-│   │   ├── BuyBox
-│   │   ├── Section
-│   │   ├── FilterGroup
 │   │   └── ProductDetails
 │   └── pages/
 │       ├── HomePage
@@ -47,3 +45,59 @@ O projeto utiliza as seguintes tecnologias e dependências:
 └── index.js
 
 ```
+
+## Arquitetura e Eficiência de Layout
+
+O projeto foi estruturado priorizando a manutenibilidade e a experiência do usuário:
+
+* **Reaproveitamento de Layout (`PageLayout`):** Utiliza o padrão de layout compartilhado com `<Outlet />` do React Router, mantendo o `Header` e o `Footer` fixos e evitando re-renderizações desnecessárias durante a navegação entre páginas.
+* **Componentização Reutilizável:** Criação de componentes modulares e configuráveis via props, como `<Gallery />` (usado tanto para o banner principal quanto para a vitrine de coleções em destaque), `<ProductCard />`, `<ProductListing />` e `<FooterInfo />`.
+* **Sistema de Roteamento e Tratamento de Erros:**
+  * Rotas principais configuradas (`/`, `/produtos`, `/produto/:id/:nome`).
+  * **Tratamento de Rotas Inexistentes (`*`):** Redirecionamento automático para uma página amigável de *Not Found* (`404`) com opção de retorno rápido à página inicial.
+  * **Tratamento de Funcionalidades Futuras (`/em-construcao`):** Ações como busca, cadastro, login e links institucionais redirecionam para uma tela informativa de *Serviço em Construção*, garantindo que o usuário nunca encontre links quebrados durante a navegação.
+
+---
+
+## Fonte de Dados e Preparação para Backend
+
+* **Consumo de Dados Locais:** Nesta etapa de entrega, a aplicação consome uma base de dados estruturada localmente em formato JSON (`src/data/products.json`), garantindo estabilidade, rapidez no carregamento e independência de conexão externa durante testes e avaliações.
+* **Arquitetura Pronta para API Externa / Backend:** A camada de serviços (`src/services`) e os componentes de listagem foram projetados seguindo o padrão REST utilizado por APIs de e-commerce como a **Fake Store API** (`fakestoreapi.com`). Assim que o **backend próprio** da aplicação for construído, a integração ocorrerá de forma direta apenas substituindo a origem dos dados locais pelas requisições HTTP reais, sem necessidade de refatorar os componentes visuais.
+
+---
+
+## Próximos Passos (Roadmap)
+
+As seguintes funcionalidades estão planejadas para implementação nas próximas etapas do desenvolvimento:
+
+* [ ] Construção e integração do **Backend próprio** (API RESTful para produtos, usuários e pedidos).
+* [ ] Implementação funcional do **Filtro de Busca** na barra superior e filtros por categoria/preço na listagem de produtos.
+* [ ] Desenvolvimento das telas e fluxos de **Cadastro e Autenticação (Login)**.
+* [ ] Implementação da página completa de **Detalhes do Produto** com galeria interativa e seleção de variações.
+* [ ] Funcionalidade de **Carrinho de Compras** (adicionar, remover e calcular subtotal).
+
+---
+
+## Como Executar o Projeto Localmente
+
+1. **Baixe e salve repositório:**
+   ```bash
+   git clone
+   ```
+
+2. **Acesse a pasta do projeto:**
+   ```bash
+   cd projeto_Loja_digital
+   ```
+
+3. **Instale as dependências:**
+   ```bash
+   npm install
+   ```
+
+4. **Inicie o servidor de desenvolvimento:**
+   ```bash
+   npm run dev
+   ```
+
+5. Acesse no navegador o endereço indicado : `http://localhost:5173`.
