@@ -1,4 +1,4 @@
-# Digital Store - Frontend E-commerce
+# Loja Digital - Frontend
 
 Projeto frontend de uma plataforma de e-commerce desenvolvido em **React**, focado na construção de interfaces modernas, reutilização de componentes e experiência de navegação fluida.
 
@@ -46,6 +46,31 @@ Projeto frontend de uma plataforma de e-commerce desenvolvido em **React**, foca
 
 ```
 
+## Como Executar o Projeto Localmente
+
+1. **Baixe e salve repositório:**
+   ```bash
+   git clone
+   ```
+
+2. **Acesse a pasta do projeto:**
+   ```bash
+   cd projeto_Loja_digital
+   ```
+
+3. **Instale as dependências:**
+   ```bash
+   npm install
+   ```
+
+4. **Inicie o servidor de desenvolvimento:**
+   ```bash
+   npm run dev
+   ```
+
+5. Acesse no navegador o endereço indicado : `http://localhost:5173`.
+
+
 ## Arquitetura e Eficiência de Layout
 
 O projeto foi estruturado priorizando a manutenibilidade e a experiência do usuário:
@@ -78,26 +103,3 @@ As seguintes funcionalidades estão planejadas para implementação nas próxima
 
 ---
 
-## Como Executar o Projeto Localmente
-
-1. **Baixe e salve repositório:**
-   ```bash
-   git clone
-   ```
-
-2. **Acesse a pasta do projeto:**
-   ```bash
-   cd projeto_Loja_digital
-   ```
-
-3. **Instale as dependências:**
-   ```bash
-   npm install
-   ```
-
-4. **Inicie o servidor de desenvolvimento:**
-   ```bash
-   npm run dev
-   ```
-
-5. Acesse no navegador o endereço indicado : `http://localhost:5173`.
