@@ -6,11 +6,11 @@ Projeto frontend de uma plataforma de e-commerce desenvolvido em **React**, foca
 
 ## Motivação
 
--Este é um projeto construido para o curso de Desenvolvimento Web Full Stack da Geração Tech 4.0, uma parceria entre o IEL Ceará e o Governo do Estado do Ceará.
+Este é um projeto construido para o curso de Desenvolvimento Web Full Stack da Geração Tech 4.0, uma parceria entre o IEL Ceará e o Governo do Estado do Ceará.
 
 ## Objetivo
 
--Este é um frontend de uma loja online com todas as funcionalidades de uma e-commerce:
+Este é um frontend de uma loja online com todas as funcionalidades de uma e-commerce:
 -- Gestão de produtos;
 -- Categorias;
 -- Laçamentos de ofertas e descontos;
@@ -41,8 +41,10 @@ Projeto frontend de uma plataforma de e-commerce desenvolvido em **React**, foca
 │   │   ├── HomePage
 │   │   ├── ProductViewPage
 │   │   └── ProductListingPage
+│   └── layouts/PageLayout.jsx
 │   └── services/index.js
 │   └── Routes/Paths.js
+│   └── style/GlobalStyles.jsx
 ├── App.js
 └── index.js
 
