@@ -38,9 +38,11 @@ Projeto frontend de uma plataforma de e-commerce desenvolvido em **React**, foca
 │   │   ├── ProductCard
 │   │   └── ProductDetails
 │   └── pages/
-│       ├── HomePage
-│       ├── ProductViewPage
-│       └── ProductListingPage
+│   │   ├── HomePage
+│   │   ├── ProductViewPage
+│   │   └── ProductListingPage
+│   └── services/index.js
+│   └── Routes/Paths.js
 ├── App.js
 └── index.js
 
@@ -68,7 +70,7 @@ Projeto frontend de uma plataforma de e-commerce desenvolvido em **React**, foca
    npm run dev
    ```
 
-5. Acesse no navegador o endereço indicado : `http://localhost:5173`.
+5. Acesse no navegador o endereço : `http://localhost:5173`.
 
 
 ## Arquitetura e Eficiência de Layout
@@ -103,3 +105,8 @@ As seguintes funcionalidades estão planejadas para implementação nas próxima
 
 ---
 
+## Documentação Detalhada
+
+Para um entendimento completos da interação, acesse a documentação específicos do projeto:
+
+* [Documentação do frontend](./documentacao_frontend.md) — Guia passo a passo da organização e arquitetura da aplicação.
