@@ -1,4 +1,4 @@
-# Documentação — Digital Store (Frontend)
+# Documentação — Projeto loja digital (Frontend)
 
 Esta documentação detalha a arquitetura, os componentes, o sistema de roteamento, a identidade visual e a estratégia de gerenciamento de dados da aplicação **Digital Store**.
 
