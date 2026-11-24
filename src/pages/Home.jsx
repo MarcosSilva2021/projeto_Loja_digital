@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Gallery from "../components/Gallery";
 import ProductListing from "../components/ProductListing";
 import productsData from "../data/products.json";
+import Section from "../components/Section";
 
 // Container principal da página Home com espaçamento interno e largura centralizada
 const HomeContainer = styled.main`
@@ -41,34 +42,18 @@ const Home = () => {
 
   return (
     <HomeContainer>
-      {/* 1. Galeria Principal (Carrossel grande do topo) */}
-      <SectionBlock>
-        <Gallery
-          width="1440"
-          height="681"
-          radius="4px"
-          images={bannerImages}
-        />
-      </SectionBlock>
+  <Section>
+    <Gallery width="1440" height="681" radius="4px" images={bannerImages} />
+  </Section>
 
-      {/* 2. Coleções em Destaque (Reaproveitando a Galeria com 3 imagens visíveis) */}
-      <SectionBlock>
-        <SectionTitle>Coleções em destaque</SectionTitle>
-        <Gallery
-          width="1440"
-          height="251"
-          radius="8px"
-          numVisible={3}
-          images={collectionsImages}
-        />
-      </SectionBlock>
+  <Section title="Coleções em destaque">
+    <Gallery width="1440" height="251" radius="8px" numVisible={3} images={collectionsImages} />
+  </Section>
 
-      {/* 3. Lista de Produtos em Alta (Lendo do arquivo products.json) */}
-      <SectionBlock>
-        <SectionTitle>Produtos em alta</SectionTitle>
-        <ProductListing products={productsData} />
-      </SectionBlock>
-    </HomeContainer>
+  <Section title="Produtos em alta">
+    <ProductListing products={productsData} />
+  </Section>
+</HomeContainer>
   );
 };
 
