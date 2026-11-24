@@ -1,4 +1,3 @@
-// src/components/Section.jsx
 import styled from "styled-components";
 
 const SectionWrapper = styled.section`
@@ -19,7 +18,7 @@ const Title = styled.h2`
   margin: 0;
 `;
 
-// Recebe título, um link/botão opcional à direita e o conteúdo via children
+// Recebe título
 const Section = ({ title, titleAlign = "left", link, children }) => {
   return (
     <SectionWrapper>
