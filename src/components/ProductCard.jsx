@@ -1,9 +1,17 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const CardContainer = styled.div`
+const CardContainer = styled(Link)`
   width: 292px;
   display: flex;
   flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
 `;
 
 const ProductImage = styled.img`
@@ -40,20 +48,31 @@ const DiscountPrice = styled.span`
   font-weight: 700;
 `;
 
-const ProductCard = ({ image, name, price, priceDiscount }) => {
-  const hasDiscount = Boolean(priceDiscount);
+const formatarMoeda = (valor) => {
+  return Number(valor).toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
+};
+
+const ProductCard = ({ id, slug, image, name, price, priceDiscount }) => {
+  // Só considera desconto se existir, for maior que 0 e menor que o preço cheio
+  const hasDiscount = Boolean(priceDiscount && priceDiscount > 0 && priceDiscount < price);
+
+  // Define a rota de destino (usa slug se existir, senão vai apenas pelo id)
+  const productLink = slug ? `/produto/${id}/${slug}` : `/produto/${id}`;
 
   return (
-    <CardContainer>
+    <CardContainer to={productLink}>
       <ProductImage src={image} alt={name} />
       <ProductName>{name}</ProductName>
       <PriceContainer>
         <OriginalPrice $hasDiscount={hasDiscount}>
-          ${price}
+          {formatarMoeda(price)}
         </OriginalPrice>
         {hasDiscount && (
           <DiscountPrice>
-            ${priceDiscount}
+            {formatarMoeda(priceDiscount)}
           </DiscountPrice>
         )}
       </PriceContainer>
