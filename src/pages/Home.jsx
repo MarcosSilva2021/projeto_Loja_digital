@@ -42,18 +42,18 @@ const Home = () => {
 
   return (
     <HomeContainer>
-  <Section>
-    <Gallery width="1440" height="681" radius="4px" images={bannerImages} />
-  </Section>
+      <Section>
+        <Gallery width="1440" height="681" radius="4px" images={bannerImages} />
+      </Section>
 
-  <Section title="Coleções em destaque">
-    <Gallery width="1440" height="251" radius="8px" numVisible={3} images={collectionsImages} />
-  </Section>
+      <Section title="Coleções em destaque">
+        <Gallery width="1440" height="251" radius="8px" numVisible={3} images={collectionsImages} />
+      </Section>
 
-  <Section title="Produtos em alta">
-    <ProductListing products={productsData} />
-  </Section>
-</HomeContainer>
+      <Section title="Produtos em alta">
+        <ProductListing products={productsData} />
+      </Section>
+    </HomeContainer>
   );
 };
 
