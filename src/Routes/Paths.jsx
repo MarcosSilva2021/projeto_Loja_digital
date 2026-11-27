@@ -5,6 +5,7 @@ import PageLayout from "../layouts/PageLayout";
 import NotFound from "../pages/NotFound";
 import Produto from "../pages/Produto";
 import EmConstrucao from "../pages/EmConstrucao";
+import Login from "../pages/Login";
 
 const Paths = () => {
     return (  
@@ -15,11 +16,11 @@ const Paths = () => {
                         <Route index element={<Home />} />
                         <Route path="/produtos" element={<Produtos/>}/>
                         <Route path="/produto/:id/:nome?" element={<Produto />}/>
+                        <Route path="/login" element={<Login />} />
 
                         {/* Rotas em construção */}
                         <Route path="/em-construcao" element={<EmConstrucao />} />
-                        <Route path="/cadastro" element={<EmConstrucao />} />
-                        <Route path="/login" element={<EmConstrucao />} />
+                        <Route path="/cadastro" element={<EmConstrucao />} />                        
                         <Route path="/categorias" element={<EmConstrucao />} />
                         <Route path="/pedidos" element={<EmConstrucao />} />
 
