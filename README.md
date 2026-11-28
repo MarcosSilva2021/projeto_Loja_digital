@@ -1,6 +1,6 @@
 # Loja Digital - Frontend
 
-Projeto frontend de uma plataforma de e-commerce desenvolvido em **React**, focado na construção de interfaces modernas, reutilização de componentes e experiência de navegação fluida.
+Projeto frontend de uma plataforma de e-commerce desenvolvido em **React**, focado na construção de interfaces modernas, reutilização de componentes, integração com APIs REST e experiência de navegação fluida.
 
 ---
 
@@ -11,13 +11,16 @@ Este é um projeto construido para o curso de Desenvolvimento Web Full Stack da 
 ## Objetivo
 
 Este é um frontend de uma loja online com todas as funcionalidades de uma e-commerce:
--- Gestão de produtos;
--- Categorias;
--- Laçamentos de ofertas e descontos;
+* Gestão e vitrine de produtos;
+* Navegação por categorias;
+* Lançamentos de ofertas e descontos;
+* Autenticação de usuários e controle de acesso a rotas protegidas.
 
 ## Tecnologias Utilizadas
 
 * **React (Vite):** Biblioteca principal para construção da interface baseada em componentes e gerenciamento de estado.
+* **Axios:** Cliente HTTP utilizado para comunicação com APIs REST e configuração de interceptors para envio de tokens.
+* **React Hook Form:** Gerenciamento e validação performática de formulários (como a tela de login).
 * **React Router DOM:** Gerenciamento de rotas SPA (Single Page Application), navegação dinâmica e tratamento de páginas inexistentes.
 * **Styled-Components:** Estilização modularizada via CSS-in-JS com suporte a variáveis globais de tema (`GlobalStyles`).
 * **PrimeReact & PrimeFlex:** Biblioteca de componentes ricos de interface e sistema de grid responsivo.
@@ -30,22 +33,36 @@ Este é um frontend de uma loja online com todas as funcionalidades de uma e-com
 
 ```
 ├── src/
-│   ├── compoments/
+│   ├── components/
 │   │   ├── Header
 │   │   ├── Footer
 │   │   ├── Logo
 │   │   ├── ProductListing
 │   │   ├── ProductCard
 │   │   └── ProductDetails
-│   └── pages/
-│   │   ├── HomePage
-│   │   ├── ProductViewPage
-│   │   └── ProductListingPage
-│   └── layouts/PageLayout.jsx
-│   └── services/index.js
-│   └── Routes/Paths.js
-│   └── style/GlobalStyles.jsx
-├── App.js
+│   ├── contexts/
+│   │   └── AuthContext.jsx
+│   ├── data/
+│   │   └── products.json
+│   ├── layouts/
+│   │   └── PageLayout.jsx
+│   ├── pages/
+│   │   ├── Home.jsx
+│   │   ├── Produtos.jsx
+│   │   ├── Produto.jsx
+│   │   ├── Login.jsx
+│   │   ├── Users.jsx
+│   │   ├── EmConstrucao.jsx
+│   │   └── NotFound.jsx
+│   ├── Routes/
+│   │   ├── Paths.jsx
+│   │   └── PrivateRoute.jsx
+│   ├── services/
+│   │   └── index.js
+│   ├── styles/
+│   │   ├── GlobalStyles.jsx
+│   │   └── LoginStyles.jsx
+│   ├── App.jsx
 └── index.js
 
 ```
@@ -85,13 +102,17 @@ O projeto foi estruturado priorizando a manutenibilidade e a experiência do usu
   * Rotas principais configuradas (`/`, `/produtos`, `/produto/:id/:nome`).
   * **Tratamento de Rotas Inexistentes (`*`):** Redirecionamento automático para uma página amigável de *Not Found* (`404`) com opção de retorno rápido à página inicial.
   * **Tratamento de Funcionalidades Futuras (`/em-construcao`):** Ações como busca, cadastro, login e links institucionais redirecionam para uma tela informativa de *Serviço em Construção*, garantindo que o usuário nunca encontre links quebrados durante a navegação.
+  * **Consumo de API com Axios e Fallback Local:**
+  * A camada de serviços (`src/services/index.js`) utiliza o **Axios** para consumir os dados de produtos via requisições HTTP e mecanismo de **fallback** para dados locais salvos na pasta public.
+  * **Estratégia de Fallback:** Caso a API externa esteja indisponível, ocorra falha de rede ou demora na resposta, a aplicação aciona automaticamente um mecanismo de *fallback* carregando os dados locais (`src/data/products.json`), garantindo que a vitrine nunca fique vazia ou quebre durante o uso.
+* **Autenticação com JWT e Rotas Protegidas:**
+  * **Tela de Login (`/login`):** Formulário construído com `react-hook-form` e componentes do `PrimeReact` estilizados via `LoginStyles.jsx`.
+  * **Gerenciamento de Sessão (`AuthContext.jsx`):** Armazena e persiste o token **JWT** no `localStorage`, mantendo o usuário autenticado mesmo ao recarregar a página.
+  * **Proteção de Rotas (`PrivateRoute.jsx`):** Bloqueia o acesso não autorizado a páginas restritas (como `/users`), redirecionando automaticamente usuários não autenticados para a tela de login.
 
 ---
 
-## Fonte de Dados e Preparação para Backend
 
-* **Consumo de Dados Locais:** Nesta etapa de entrega, a aplicação consome uma base de dados estruturada localmente em formato JSON (`src/data/products.json`), garantindo estabilidade, rapidez no carregamento e independência de conexão externa durante testes e avaliações.
-* **Arquitetura Pronta para API Externa / Backend:** A camada de serviços (`src/services`) e os componentes de listagem foram projetados seguindo o padrão REST utilizado por APIs de e-commerce como a **Fake Store API** (`fakestoreapi.com`). Assim que o **backend próprio** da aplicação for construído, a integração ocorrerá de forma direta apenas substituindo a origem dos dados locais pelas requisições HTTP reais, sem necessidade de refatorar os componentes visuais.
 
 ---
 
@@ -99,10 +120,13 @@ O projeto foi estruturado priorizando a manutenibilidade e a experiência do usu
 
 As seguintes funcionalidades estão planejadas para implementação nas próximas etapas do desenvolvimento:
 
-* [ ] Construção e integração do **Backend próprio** (API RESTful para produtos, usuários e pedidos).
+As seguintes funcionalidades estão planejadas para implementação nas próximas etapas do desenvolvimento:
+
+* [x] Integração HTTP com **Axios** e mecanismo de **fallback** para dados locais.
+* [x] Desenvolvimento da tela de **Login**, contexto de autenticação com **JWT** e proteção de rotas (`PrivateRoute`).
+* [ ] Conclusão da rota de autenticação JWT no **Backend próprio** e migração completa dos endpoints de produtos e usuários.
 * [ ] Implementação funcional do **Filtro de Busca** na barra superior e filtros por categoria/preço na listagem de produtos.
-* [ ] Desenvolvimento das telas e fluxos de **Cadastro e Autenticação (Login)**.
-* [ ] Implementação da página completa de **Detalhes do Produto** com galeria interativa e seleção de variações.
+* [ ] Implementação da página completa de **Detalhes do Produto** com galeria interativa e seleção de variações (tamanhos/cores).
 * [ ] Funcionalidade de **Carrinho de Compras** (adicionar, remover e calcular subtotal).
 
 ---

@@ -67,9 +67,10 @@ A aplicação utiliza o padrão de **Layout Compartilhado** através do componen
 | :--- | :--- | :--- |
 | `/` | `<Home />` | **Ativa.** Exibe carrossel principal, coleções em destaque e vitrine de produtos. |
 | `/produtos` | `<Produtos />` | **Ativa.** Exibe a listagem completa de produtos utilizando `<ProductListing />`. |
-| `/produto/:id/:nome` | `<Produto />` | **Ativa (Estrutura).** Rota dinâmica preparada para exibir detalhes de um item específico. |
+| `/produto/:id/:nome?` | `<Produto />` | **Ativa (Estrutura).** Rota dinâmica preparada para exibir detalhes de um item específico. |
 | `/em-construcao` | `<EmConstrucao />` | **Ativa.** Tela informativa para recursos em desenvolvimento, com botão de retorno à Home. |
-| `/cadastro`, `/login`, `/categorias`, `/pedidos` | `<EmConstrucao />` | **Redirecionadas.** Apontam para a tela de serviço em construção para manter a experiência fluida. |
+| `/login` | `<Login />` | **Ativa.** Tela de login |
+| `/cadastro`, `/users`, `/categorias`, `/pedidos` | `<EmConstrucao />` | **Redirecionadas.** Apontam para a tela de serviço em construção para manter a experiência fluida. |
 | `*` (Qualquer outra rota) | `<NotFound />` | **Ativa.** Tratamento de erro 404 para URLs inexistentes, com link para retornar à página inicial. |
 
 ---
@@ -103,7 +104,7 @@ A aplicação utiliza o padrão de **Layout Compartilhado** através do componen
 
 ## 6. Estratégia de Dados e Integração Futura com Backend
 
-Atualmente, as páginas `Home` e `Produtos` consomem uma base de dados local unificada em **`src/data/products.json`**, garantindo carregamento instantâneo, estabilidade offline e fidelidade visual às imagens armazenadas na pasta `public/`.
+Atualmente, as páginas `Home` e `Produtos` consomem uma base de da APILocal com axios e de dados local unificada em **`src/data/products.json`**, garantindo carregamento instantâneo, estabilidade offline e fidelidade visual às imagens armazenadas na pasta `public/`.
 
 ### Preparação para API Externa / Backend Próprio
 A arquitetura foi desenhada para permitir a migração para dados remotos sem refatorar os componentes visuais:
@@ -114,7 +115,7 @@ A arquitetura foi desenhada para permitir a migração para dados remotos sem re
 
 ## 7. Roadmap de Evolução
 
-* [ ] **Backend & Banco de Dados:** Construção da API RESTful própria para gerenciamento real de produtos, usuários e pedidos.
+* [x] **Backend & Banco de Dados:** Construção da API RESTful própria para gerenciamento real de produtos, usuários e pedidos.
 * [ ] **Integração de Busca:** Conectar o `InputText` do `Header` à rota de listagem com filtragem via query params (`?filter=`).
-* [ ] **Página de Detalhes (`Produto.jsx`):** Consumir o parâmetro `:id` da URL para exibir galeria com `showThumbs`, seleção de tamanhos/cores e produtos relacionados.
+* [x] **Página de Detalhes (`Produto.jsx`):** Consumir o parâmetro `:id` da URL para exibir galeria com `showThumbs`, seleção de tamanhos/cores e produtos relacionados.
 * [ ] **Autenticação e Carrinho:** Implementar fluxos funcionais nas telas de Login, Cadastro e Carrinho de Compras.
