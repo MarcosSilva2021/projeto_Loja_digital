@@ -1,5 +1,6 @@
 import Paths from "./Routes/Paths";
-import GlobalSyles from "./styles/GlobalStyles";
+import GlobalStyles from "./styles/GlobalStyles";
+import { AuthContext } from "./contexts/AuthContext";
 
 import "primereact/resources/themes/lara-light-pink/theme.css";
 import "primeicons/primeicons.css";
@@ -10,8 +11,10 @@ const App = () => {
 
   return (
     <> 
-      <GlobalSyles />     
-      <Paths />      
+      <GlobalStyles />
+      <AuthContext>     
+        <Paths />
+      </AuthContext>      
     </>
   );
 }

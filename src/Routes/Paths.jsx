@@ -7,6 +7,7 @@ import Produto from "../pages/Produto";
 import EmConstrucao from "../pages/EmConstrucao";
 import Login from "../pages/Login";
 import Users from "../pages/Users";
+import PrivateRoute from "./PrivateRoute";
 
 const Paths = () => {
     return (  
@@ -18,7 +19,16 @@ const Paths = () => {
                         <Route path="/produtos" element={<Produtos/>}/>
                         <Route path="/produto/:id/:nome?" element={<Produto />}/>
                         <Route path="/login" element={<Login />} />
-                        <Route path="/users" element={<Users />} />
+                        {/* Rota Protegida */}
+                        <Route 
+                            path="/users" 
+                            element={
+                                <PrivateRoute >
+                                    <Users />
+                                </PrivateRoute>
+                                    
+                                } 
+                        />  
 
                         {/* Rotas em construção */}
                         <Route path="/em-construcao" element={<EmConstrucao />} />
